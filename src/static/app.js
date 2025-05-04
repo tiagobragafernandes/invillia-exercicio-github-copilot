@@ -25,8 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <p><strong>Participants:</strong></p>
         `;
 
+        const participantsList = document.createElement("div");
+        participantsList.className = "participants-list";
+
+        details.participants.forEach((participant) => {
+          const participantDiv = document.createElement("div");
+          participantDiv.className = "participant";
+          participantDiv.textContent = participant;
+          participantsList.appendChild(participantDiv);
+        });
+
+        activityCard.appendChild(participantsList);
         activitiesList.appendChild(activityCard);
 
         // Add option to select dropdown
